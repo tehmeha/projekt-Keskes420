@@ -13,26 +13,42 @@ int main()
     int a;
     int sudoku[9][9];
     char c;
-    for(int i=0;i<9;i++)
+        cout << endl;
+        cout << "   ";
+        for (int n =0; n<9; n++)
         {
-        for(int j=0;j<9;j++)
-            {
-                for (int n = 1; n < 9; n++)
+            cout <<n<<" ";
+                if(n== 2 || n==5||n==8)
                 {
-                cout << "-" ;
+                    cout << " ";
                 }
-                cout << endl;
-                for (int n = 1; n < 9; n++)
-                    {
-                    if(n < 10 ) cout << n << " | ";
-                    else cout << n << "| ";
-                    dat >> a >> c;
-                    cout << a << " ";
-                    sudoku[i][j] = a;
-                    }
+        }
+        cout << endl;
+        for (int n =1; n<24;n++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+        for(int i=0;i<9;i++)
+        {
+            if(i== 3 || i==6||i==9)
+                {
+                    cout << endl;
                 }
-                cout <<endl;
+                cout << i << "| ";
+           for(int j=0;j<9;j++)
+            {
+            if(j== 3 || j==6||j==9)
+                {
+                    cout << "| ";
+                }
+            dat >> a >> c;
+            cout << a << " ";
+            sudoku[i][j] = a;
             }
+            cout <<endl;
+        }
+
     ifstream dat1;
     dat1.open("sudoku_rjesen.data");
     int b;
@@ -46,7 +62,7 @@ int main()
             sudoku_rjesen[i][j] = b;
             }
         }
-        for(int i=22; i<81; )
+        for(int i=22; i<=81; )
     {
 
         int  redak, stupac, Broj;
@@ -62,6 +78,7 @@ int main()
         if( sudoku[redak][stupac] == sudoku_rjesen[redak][stupac] )
             {
                 i++;
+                sudoku[redak][stupac] = Broj;
             }
 
         else
@@ -69,13 +86,38 @@ int main()
             cout << "unesli ste krivi broj, popravite ga!!!!!!" << endl;
 
         }
-        for(int l=0;l<9;l++)
+        cout << "   ";
+        for (int n =0; n<9; n++)
         {
-        for(int k=0;k<9;k++)
-            {
-            cout << sudoku[l][k]<< " ";
-            }
+            cout <<n<<" ";
+                if(n== 2 || n==5||n==8)
+                {
+                    cout << " ";
+                }
+        }
         cout << endl;
+        for (int n =1; n<24;n++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+        for(int i=0;i<9;i++)
+        {
+            if(i== 3 || i==6||i==9)
+                {
+                    cout << endl;
+                }
+                cout << i << "| ";
+           for(int j=0;j<9;j++)
+            {
+            if(j== 3 || j==6||j==9)
+                {
+                    cout << "| ";
+                }
+
+            cout <<sudoku[i][j]<< " ";
+            }
+            cout <<endl;
         }
     }
     cout << "Uspjesno ste rjesili neki sudoku SVAKA CAST";
